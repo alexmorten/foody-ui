@@ -1,0 +1,8 @@
+.register-form{
+  max-width: 300px;
+  margin: 40px auto;
+}
+.error-small{
+  color: red;
+  font-size: 11px;
+}
