@@ -33,7 +33,7 @@ render(){
   }
   var arrowBack=(
     <div style={arrowContainerStyle}>
-      <Link to='/posts' >
+      <Link to='/' >
         <FontIcon className="material-icons" style={{fontSize:'40px'}} >keyboard_arrow_left</FontIcon>
       </Link>
     </div>

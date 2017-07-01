@@ -46,7 +46,7 @@ class ImageUpload extends AuthComponent{
      });
     },(failResponse)=>{
       console.log(failResponse);
-    },true)
+    },true);
   }
 render(){
   var style={

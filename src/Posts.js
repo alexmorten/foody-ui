@@ -25,10 +25,12 @@ render(){
          title={post.title}
          subtitle={post.user.fullname}
          avatar={<Avatar src={post.user.avatar_thumb} />} />
-         <CardMedia overlay={<CardTitle title="Imagine a rating here"/>}>
+         { post.image_processing ? <CardMedia overlay={<CardTitle title="Imagine a rating here"/>}>
            <img src={post.image_medium} alt="" />
          </CardMedia>
-      </Link>   
+        : <div>Image is processing</div>
+          }
+      </Link>
        <CardText className="post-icon-container">
          <a href={post.image_original}><FontIcon className="material-icons" >file_download</FontIcon></a>
          <BasicDeleteDialogButton delete={this.handleDelete} itemTitle={post.title} iconClass={"delete-post"}/>
