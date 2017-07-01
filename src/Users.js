@@ -1,25 +1,25 @@
 import './css/Users.css';
-import React, {Component} from 'react';
+import React from 'react';
 import AuthComponent from './helperComponents/AuthComponent';
-import ImageUpload from './ImageUpload';
+import ImageUpload from './helperComponents/ImageUpload';
 import Avatar from 'material-ui/Avatar';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
-class User extends Component{
+class User extends AuthComponent{
+  handleAvatarChange= (location)=>{
+    this.update("users/"+this.props.user.id,{image:location},(response)=>{
+      this.props.refresh();
+    });
+  }
 render(){
   var user = this.props.user;
   return(
-    // <div className="user">
-    //   <img src={user.avatar_thumb} alt=""/>
-    //   <p>{user.fullname}</p>
-    //   <ImageUpload refresh={this.props.refresh} user={user}/>
-    // </div>
     <ListItem
       disabled={true}
-      leftAvatar={<Avatar src={user.avatar_original} />}
-      rightIcon={ <ImageUpload refresh={this.props.refresh} user={user}/>}>
+      leftAvatar={<Avatar src={user.avatar_thumb} />}
+      rightIcon={ <ImageUpload refresh={this.props.refresh} user={user} onUpload={this.handleAvatarChange}/>}>
         {user.fullname}
-      
+
       </ListItem>
   )
 }

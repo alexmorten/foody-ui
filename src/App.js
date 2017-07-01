@@ -28,8 +28,8 @@ class App extends Component {
           <div><img src={logo} className="App-logo" alt="logo" /></div>
 
           <ul className="navbar">
-            <li className="nav-item"><Link to="/">Users</Link></li>
-            
+            <li className="nav-item"><Link to="/">Posts</Link></li>
+            <li className="nav-item"><Link to="/users">Users</Link></li>
             {loginLink}
           </ul>
         </div>

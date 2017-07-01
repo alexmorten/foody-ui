@@ -16,5 +16,17 @@ function getItem(key,val){
 function remove(key){
   localStorage.removeItem(key);
 }
-const StorageAdaptor = {setObject,getObject,setItem,getItem,remove};
+
+function getResultFromCache(url,cb){
+  var result = getObject(url);
+  if(result){
+    cb(result);
+  }
+}
+function cacheResult(url,result){
+  setObject(url,result);
+}
+
+
+const StorageAdaptor = {setObject,getObject,setItem,getItem,remove,getResultFromCache,cacheResult};
 export default StorageAdaptor;

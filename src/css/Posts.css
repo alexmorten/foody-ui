@@ -1,0 +1,37 @@
+.posts{
+  max-width: 600px;
+  margin:50px auto;
+}
+.post{
+  padding: 5px;
+  margin: 10px 0;
+  position: relative;
+}
+.post:hover{
+  background-color: #f1f1f1 !important;
+}
+.add-post{
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f1f7fc;
+}
+.url-shower{
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #d4d4d4;
+  width: 90%;
+}
+.post-icon-container{
+  position: relative;
+}
+.delete-post{
+  position: absolute;
+  right: 10px;
+  top:10px;
+}
+.delete-post:hover{
+  border-bottom: 1px solid red;
+
+}

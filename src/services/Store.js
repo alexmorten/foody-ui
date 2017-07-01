@@ -1,46 +1,58 @@
 import StorageAdaptor from './StorageAdaptor';
 
-//const API_URL = "https://diswebtion-api.herokuapp.com/";
-const API_URL = "http://localhost:3000/";
+const API_URL = "https://alex-foody-api.herokuapp.com/";
+//const API_URL = "http://localhost:3000/";
 const AUTH_URL = API_URL+"auth/";
 
-function receive(url,cb,fail){
+ 
+function receive(url,cb,fail,disableCache){
   if(!isAuthenticated()){
     return "login"; //meaning a need to transition to Login
   }
-
+  if(!disableCache){
+    StorageAdaptor.getResultFromCache(url,cb);
+  }
   var receiveHeaders = {
     accept: 'application/json',
   };
   var completeHeaders = constructHeadersForRequest(receiveHeaders);
 
-  return fetch(API_URL+url,{
+  fetch(API_URL+url,{
     headers:completeHeaders
   })
   .then(checkStatus)
   .then(parseJSON)
   .then((answer)=>{
     if(!answer.error){
+      if(!disableCache){
+      StorageAdaptor.cacheResult(url,answer);
+      }
       cb(answer);
     }else if (fail) {
       fail(answer);
     }
   });
 }
-function query(url,paramsObj,cb,fail){
+function query(url,paramsObj,cb,fail,disableCache){
   if(!isAuthenticated()){
     return "login"; //meaning a need to transition to Login
+  }
+  if(!disableCache){
+    StorageAdaptor.getResultFromCache(url,cb);
   }
   var headers = {
     accept: 'application/json',
   };
   var completeHeaders = constructHeadersForRequest(headers);
-  return fetch(API_URL+url+constructQueryParams(paramsObj),{
+  fetch(API_URL+url+constructQueryParams(paramsObj),{
     headers:completeHeaders
   }).then(checkStatus)
     .then(parseJSON)
     .then((answer)=>{
       if(!answer.error){
+        if(!disableCache){
+        StorageAdaptor.cacheResult(url,answer);
+        }
         cb(answer);
       }else if (fail) {
         fail(answer);
@@ -54,12 +66,13 @@ function send(url,obj,cb,fail){
   if(!isAuthenticated()){
     return "login";
   }
+
   var sendHeaders = {
     'accept': 'application/json',
     'Content-Type': 'application/json'
   };
   var completeHeaders=constructHeadersForRequest(sendHeaders);
-  return fetch(API_URL+url,{
+  fetch(API_URL+url,{
     headers: completeHeaders,
     method:"post",
     body:JSON.stringify(obj)
@@ -82,7 +95,7 @@ function update(url,obj,cb,fail){
     'Content-Type': 'application/json'
   };
   var completeHeaders=constructHeadersForRequest(sendHeaders);
-  return fetch(API_URL+url,{
+  fetch(API_URL+url,{
     headers: completeHeaders,
     method:"put",
     body:JSON.stringify(obj)
@@ -100,7 +113,7 @@ function destroy(url,cb,fail){
   if(!isAuthenticated()){
     return "login";
   }
-  return fetch(API_URL+url,{
+  fetch(API_URL+url,{
     headers:constructHeadersForRequest({}),
     method:"delete"
   }).then((checkStatus))

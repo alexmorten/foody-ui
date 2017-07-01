@@ -17,5 +17,15 @@
     filter: alpha(opacity=0);
 }
 .image-preview{
-  max-width: 300px;
+  max-width: 100%;
+}
+.imgage-container{
+  position: relative;
+
+}
+.finished-upload{
+  position: relative;
+  float: right;
+  bottom: 10px;
+  top:10px;
 }
