@@ -1,0 +1,23 @@
+.comment-container{
+  text-align: justify;
+  float: left;
+  width: 100%;
+
+}
+.avatar-container{
+  float: left;
+  padding: 5px;
+
+}
+.comment-body{
+  float: left;
+  width:90%;
+}
+.comment-text{
+  white-space: pre;
+  margin: 0;
+}
+.toggle-comment-form-button{
+  color:#c1c1c1 !important;
+
+}

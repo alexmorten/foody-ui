@@ -1,0 +1,11 @@
+.comment-form-container{
+  position: relative;
+  border: 1px solid #c7c7c7;
+  padding: 10px;
+  border-radius: 15px;
+  margin: 20px;
+  padding-bottom:  30px;
+  max-width: 450px;
+  margin: 20px auto;
+  text-align: left;
+}

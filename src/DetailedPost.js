@@ -6,19 +6,31 @@ import {Card, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card
 import Avatar from 'material-ui/Avatar';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 import {Link} from 'react-router-dom';
+import Comment from './Comment';
+import CommentForm from './helperComponents/CommentForm';
 
 class DetailedPost extends AuthComponent{
 state={
-  post:null
+  post:null,
+  comments:[]
 }
 getPost = ()=>{
 
   var post_id = this.props.match.params.post_id;
   this.find("posts/"+post_id,(post)=>{
     this.setState({post:post});
-  },(failResponse)=>{
-    console.log(failResponse);
-  });
+    this.find("posts/"+post_id+"/comments",(comments)=>{
+        this.setState({comments:comments});
+        console.log(comments);
+    },(failResponse)=>{console.log(failResponse)});
+  },(failResponse)=>{console.log(failResponse);});
+}
+addComment = (text)=>{
+  var post_id = this.props.match.params.post_id;
+  var newComment = {text:text};
+  this.post("posts/"+post_id+"/comments",newComment,()=>{
+    this.getPost();
+  },(failResponse)=>{console.log(failResponse);});
 }
 componentDidMount(){
   this.getPost();
@@ -53,6 +65,9 @@ render(){
       </div>
     )
   }
+  var commentItems = this.state.comments.map((comment)=>{
+    return(<Comment key={comment.id} comment={comment}/>);
+  });
   return(
     <Card className="detailed-post">
       {arrowBack}
@@ -67,14 +82,19 @@ render(){
          <a href={post.image_original}><FontIcon className="material-icons" >file_download</FontIcon></a>
 
        </CardText>
-       <CardTitle title="Ingredients"/>
-       <CardText>
-         {post.ingredients}
-       </CardText>
-       <CardTitle title="Preparation" />
-       <CardText>
-         {post.preparation}
-       </CardText>
+       <div className="post-details">
+         <CardTitle title="Ingredients"/>
+         <CardText>
+           {post.ingredients}
+         </CardText>
+         <CardTitle title="Preparation" />
+         <CardText>
+           {post.preparation}
+         </CardText>
+         <CardTitle title="Comments"/>
+         <CommentForm onSubmit={this.addComment}/>
+         <CardText className="comment-top-container">{commentItems}</CardText>
+       </div>
     </Card>
   );
 }
