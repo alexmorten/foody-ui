@@ -1,23 +1,28 @@
 .comment-container{
   text-align: justify;
-  float: left;
   width: 100%;
 
 }
 .avatar-container{
   float: left;
   padding: 5px;
+  min-width: 40px;
 
 }
 .comment-body{
-  float: left;
+
   width:90%;
 }
 .comment-text{
   white-space: pre;
+  display: inline-block;
   margin: 0;
 }
 .toggle-comment-form-button{
   color:#c1c1c1 !important;
 
+}
+.sub-comment-container{
+  margin-left: 10px;
+  border-left: 1px solid #e6e6e6;
 }

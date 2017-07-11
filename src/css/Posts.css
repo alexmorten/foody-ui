@@ -31,6 +31,7 @@
   position: absolute;
   right: 10px;
   top:10px;
+  cursor: pointer;
 }
 .delete-post:hover{
   border-bottom: 1px solid red;
