@@ -12,7 +12,9 @@ class CommentForm extends Component{
     this.setState({text:e.target.value});
   }
   handleSubmit = ()=>{
+
     this.props.onSubmit(this.state.text);
+    this.setState({text:""});
   }
 render(){
   return(
