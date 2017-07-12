@@ -2,8 +2,7 @@ import './css/DetailedPost.css';
 import React from 'react';
 import AuthComponent from './helperComponents/AuthComponent';
 import FontIcon from 'material-ui/FontIcon';
-import {Card, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import Avatar from 'material-ui/Avatar';
+import { CardTitle, CardText} from 'material-ui/Card';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 import {Link} from 'react-router-dom';
 import Comment from './Comment';
@@ -69,7 +68,7 @@ render(){
     return(<Comment key={comment.id} comment={comment} smallRefresh={this.getPost}/>);
   });
   return(
-  <Post post={post} additionalClasses="detailed-post" refresh={this.getPost}>
+  <Post post={post} additionalClasses="detailed-post" refresh={this.getPost} arrowBack={arrowBack}>
     <div className="post-details">
       <CardTitle title="Ingredients"/>
       <CardText>

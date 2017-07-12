@@ -28,12 +28,13 @@ class Post extends AuthComponent{
        </div>
     );
     var shouldLink = this.props.link;
-
+    var arrowBack = this.props.arrowBack || <div></div>;
     return(
       <Card className={"post " + this.props.additionalClasses ? this.props.additionalClasses : ""}>
         { shouldLink ?  (<Link to={"posts/"+post.id}>
           {linkableStuff}
         </Link>) : linkableStuff}
+        {arrowBack}
          <CardText className="post-icon-container">
            <VoteHelper votable={post} handleVote={this.handleVote} />
            <a href={post.image_original} className="icon"><FontIcon className="material-icons" >file_download</FontIcon></a>
