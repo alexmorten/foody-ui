@@ -5,9 +5,13 @@
 }
 .post-details{
 width:100%;
-display: table
+display: table;
+
 }
 .comment-top-container{
   width: 100%;
   max-width: 600px;
+}
+.white-spaced{
+  white-space: pre-line;
 }

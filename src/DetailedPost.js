@@ -73,11 +73,11 @@ render(){
     <div className="post-details">
       <CardTitle title="Ingredients"/>
       <CardText>
-        {post.ingredients}
+        <span className="white-spaced">{post.ingredients}</span>
       </CardText>
       <CardTitle title="Preparation" />
       <CardText>
-        {post.preparation}
+        <span className="white-spaced">{post.preparation}</span>
       </CardText>
       <CardTitle title="Comments"/>
       <CommentForm onSubmit={this.addComment}/>
