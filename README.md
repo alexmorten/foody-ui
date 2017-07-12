@@ -1,7 +1,9 @@
 # Foody-ui
 Hosted on [Heroku](https://foody-ui.herokuapp.com) .
 ![image](/readme-images/image0.png)
-
+![image](/readme-images/image1.png)
+![image](/readme-images/image2.png)
+![image](/readme-images/image3.png)
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
