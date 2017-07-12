@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Card, CardHeader, CardMedia, CardText} from 'material-ui/Card';
 import {Link} from 'react-router-dom';
 import Avatar from 'material-ui/Avatar';

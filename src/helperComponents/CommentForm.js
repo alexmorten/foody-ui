@@ -1,7 +1,7 @@
 import React ,{ Component} from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import FontIcon from 'material-ui/FontIcon';
+
 
 import '../css/CommentForm.css';
 class CommentForm extends Component{

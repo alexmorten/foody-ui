@@ -1,48 +1,13 @@
 import './css/Posts.css';
-import React, {Component} from 'react';
+import React,{Component} from 'react';
 import AuthComponent from './helperComponents/AuthComponent';
 import ImageUpload from './helperComponents/ImageUpload';
-// import {Card, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import ContentRemove from 'material-ui/svg-icons/content/remove';
-// import Avatar from 'material-ui/Avatar';
-// import BasicDeleteDialogButton from './helperComponents/BasicDeleteDialogButton';
-// import FontIcon from 'material-ui/FontIcon';
-// import {Link} from 'react-router-dom';
 import Post from './Post';
-// class Post extends Component{
-//   handleDelete = ()=>{
-//     this.props.deletePost(this.props.post);
-//   }
-// render(){
-//   var post = this.props.post;
-//   return(
-//     <Card className="post">
-//       <Link to={"posts/"+post.id}>
-//         <CardHeader
-//          title={post.title}
-//          subtitle={post.user.fullname}
-//          avatar={<Avatar src={post.user.avatar_thumb} />} />
-//          { post.image_processing ? <CardMedia >
-//            <img src={post.image_medium} alt="" />
-//          </CardMedia>
-//         : <div>Image is processing</div>
-//           }
-//       </Link>
-//        <CardText className="post-icon-container">
-//          <span className="rating">{post.points}</span>
-//          <FontIcon className="material-icons icon thumb-up" >thumb_up</FontIcon>
-//          <FontIcon className="material-icons icon thumb-down" >thumb_down</FontIcon>
-//          <a href={post.image_original} className="icon"><FontIcon className="material-icons" >file_download</FontIcon></a>
-//          <BasicDeleteDialogButton delete={this.handleDelete} itemTitle={post.title} iconClass={"delete-post"}/>
-//        </CardText>
-//     </Card>
-//   )
-// }
-// }
 
 class AddPost extends Component{
   state={

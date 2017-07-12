@@ -1,9 +1,7 @@
 import './css/Comment.css';
 import React from 'react';
 import AuthComponent from './helperComponents/AuthComponent';
-import FontIcon from 'material-ui/FontIcon';
 import Avatar from 'material-ui/Avatar';
-import RefreshIndicator from 'material-ui/RefreshIndicator';
 import FlatButton from 'material-ui/FlatButton';
 import CommentForm from './helperComponents/CommentForm';
 import VoteHelper from './helperComponents/VoteHelper';
