@@ -6,6 +6,8 @@ import Avatar from 'material-ui/Avatar';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 import FlatButton from 'material-ui/FlatButton';
 import CommentForm from './helperComponents/CommentForm';
+import VoteHelper from './helperComponents/VoteHelper';
+
 class Comment extends AuthComponent{
   state={
     subComments:[],
@@ -26,6 +28,7 @@ class Comment extends AuthComponent{
       this.getSubComments();
     },(failResponse)=>{console.log(failResponse);});
   }
+
   getSubComments=()=>{
     const comment = this.props.comment;
     this.find("comments/"+comment.id+"/comments",(subComments)=>{
@@ -35,10 +38,16 @@ class Comment extends AuthComponent{
   componentDidMount(){
     this.getSubComments();
   }
+  handleVote = (value)=>{
+    const comment = this.props.comment;
+    this.post("comments/"+comment.id+"/votes",{value:value},()=>{
+      this.props.smallRefresh();
+    });
+  }
   render(){
     const comment = this.props.comment;
     var subCommentItems = this.state.subComments.map((subComment)=>{
-      return(<Comment key={subComment.id} comment={subComment}/>);
+      return(<Comment key={subComment.id} comment={subComment} smallRefresh={this.getSubComments}/>);
     });
     return(
       <div className="comment-container">
@@ -52,6 +61,7 @@ class Comment extends AuthComponent{
             <FlatButton onClick={this.toggleCommentForm} className="toggle-comment-form-button">
               {this.state.commentFormOpen ? "Cancel" : "Reply"}
             </FlatButton>
+            <VoteHelper votable={comment} handleVote={this.handleVote} tiny={true}/>
           </div>
           {this.state.commentFormOpen ? <CommentForm onSubmit={this.addComment}/> : <div></div>}
           <div className="sub-comment-container">

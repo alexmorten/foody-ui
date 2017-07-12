@@ -2,14 +2,7 @@
   max-width: 600px;
   margin:50px auto;
 }
-.post{
-  padding: 5px;
-  margin: 10px 0;
-  position: relative;
-}
-.post:hover{
-  background-color: #f1f1f1 !important;
-}
+
 .add-post{
   border-radius: 10px;
   margin: 20px 0;
@@ -23,17 +16,4 @@
   border-radius: 5px;
   border: 1px solid #d4d4d4;
   width: 90%;
-}
-.post-icon-container{
-  position: relative;
-}
-.delete-post{
-  position: absolute;
-  right: 10px;
-  top:10px;
-  cursor: pointer;
-}
-.delete-post:hover{
-  border-bottom: 1px solid red;
-
 }

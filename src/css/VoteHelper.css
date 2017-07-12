@@ -1,0 +1,26 @@
+.vote-helper-container{
+  display: inline-block;
+  position: relative;
+  top:2px;
+}
+.icon,.rating{
+  display: inline-block;
+  margin-right: 3vw;
+  cursor: pointer;
+}
+.rating{
+  cursor: auto;
+  font-size: 16px;
+  min-width: 20px;
+}
+.used{
+  color: #03aae0 !important;
+}
+.icon.tiny,.rating.tiny{
+  margin-right: 10px;
+  font-size: 16px !important;
+}
+.rating.tiny{
+  margin-right: 0;
+  font-size: 12px !important;
+}

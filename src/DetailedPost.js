@@ -8,7 +8,7 @@ import RefreshIndicator from 'material-ui/RefreshIndicator';
 import {Link} from 'react-router-dom';
 import Comment from './Comment';
 import CommentForm from './helperComponents/CommentForm';
-
+import Post from './Post';
 class DetailedPost extends AuthComponent{
 state={
   post:null,
@@ -66,36 +66,24 @@ render(){
     )
   }
   var commentItems = this.state.comments.map((comment)=>{
-    return(<Comment key={comment.id} comment={comment}/>);
+    return(<Comment key={comment.id} comment={comment} smallRefresh={this.getPost}/>);
   });
   return(
-    <Card className="detailed-post">
-      {arrowBack}
-      <CardHeader
-       title={post.title}
-       subtitle={post.user.fullname}
-       avatar={<Avatar src={post.user.avatar_thumb} />} />
-       <CardMedia overlay={<CardTitle title="Imagine a rating here"/>}>
-         <img src={post.image_large} alt="" />
-       </CardMedia>
-       <CardText className="post-icon-container">
-         <a href={post.image_original}><FontIcon className="material-icons" >file_download</FontIcon></a>
-
-       </CardText>
-       <div className="post-details">
-         <CardTitle title="Ingredients"/>
-         <CardText>
-           {post.ingredients}
-         </CardText>
-         <CardTitle title="Preparation" />
-         <CardText>
-           {post.preparation}
-         </CardText>
-         <CardTitle title="Comments"/>
-         <CommentForm onSubmit={this.addComment}/>
-         <CardText className="comment-top-container">{commentItems}</CardText>
-       </div>
-    </Card>
+  <Post post={post} additionalClasses="detailed-post" refresh={this.getPost}>
+    <div className="post-details">
+      <CardTitle title="Ingredients"/>
+      <CardText>
+        {post.ingredients}
+      </CardText>
+      <CardTitle title="Preparation" />
+      <CardText>
+        {post.preparation}
+      </CardText>
+      <CardTitle title="Comments"/>
+      <CommentForm onSubmit={this.addComment}/>
+      <CardText className="comment-top-container">{commentItems}</CardText>
+    </div>
+  </Post>
   );
 }
 }

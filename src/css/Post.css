@@ -1,0 +1,23 @@
+.post{
+  padding: 5px;
+  margin: 10px 0;
+  position: relative;
+}
+.post:hover{
+  background-color: #f1f1f1 !important;
+}
+.post-icon-container{
+  position: relative;
+  min-height: 10px;
+  text-align: left;
+}
+.delete-post{
+  position: absolute;
+  right: 10px;
+  top:10px;
+  cursor: pointer;
+}
+.delete-post:hover{
+  border-bottom: 1px solid red;
+
+}
